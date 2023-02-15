@@ -1,6 +1,5 @@
 package br.com.ada.entities;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
