@@ -1,4 +1,4 @@
-package br.com.ada.entities;
+package br.com.ada.core.data.entities;
 
 import javax.persistence.*;
 import java.util.List;

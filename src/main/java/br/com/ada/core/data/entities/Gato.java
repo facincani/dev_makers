@@ -1,4 +1,4 @@
-package br.com.ada.entities;
+package br.com.ada.core.data.entities;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +19,10 @@ public class Gato {
     private String nome;
     @Column(name = "DT_NASCIMENTO")
     private Date dataNascimento;
-    @Column(name = "ID_DONO")
-    private Integer idDono;
+//    @Column(name = "ID_DONO")
+//    private Integer idDono;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "ID_DONO")
+    private Dono dono;
 
 }

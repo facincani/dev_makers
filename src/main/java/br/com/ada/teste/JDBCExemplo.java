@@ -1,6 +1,6 @@
-package br.com.ada;
+package br.com.ada.teste;
 
-import br.com.ada.entities.Gato;
+import br.com.ada.core.data.entities.Gato;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,8 +1,13 @@
-package br.com.ada;
+package br.com.ada.teste;
 
-import br.com.ada.entities.Gato;
-import br.com.ada.entities.Produto;
-import br.com.ada.entities.Venda;
+import br.com.ada.core.data.entities.Dono;
+import br.com.ada.core.data.entities.Gato;
+import br.com.ada.core.data.entities.Produto;
+import br.com.ada.core.data.entities.Venda;
+import br.com.ada.core.data.repositories.impl.DonoRepositoryImpl;
+import br.com.ada.core.data.repositories.impl.GatoRepositoryImpl;
+import br.com.ada.core.service.GatoService;
+import br.com.ada.core.service.impl.GatoServiceImpl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -14,12 +19,18 @@ import java.util.List;
 public class HibernateExemplo {
 
     public static void main(String[] args) {
+
+        GatoService service = new GatoServiceImpl(new GatoRepositoryImpl(), new DonoRepositoryImpl());
+
+        service.findById(5);
+
+
         Session session = obterSessao();
 
-        List<Produto> produtos = session.createQuery("from Produto").getResultList();
+        List<Dono> donos = session.createQuery("from Dono").getResultList();
 
-        produtos.forEach(produto -> {
-            System.out.println(produto.getDescricao());
+        donos.forEach(dono -> {
+            System.out.println(dono.toString());
         });
 
     }
@@ -30,6 +41,7 @@ public class HibernateExemplo {
         configuration.addAnnotatedClass(Gato.class);
         configuration.addAnnotatedClass(Produto.class);
         configuration.addAnnotatedClass(Venda.class);
+        configuration.addAnnotatedClass(Dono.class);
 
         SessionFactory sessionFactory = configuration.buildSessionFactory();
 
@@ -68,7 +80,7 @@ public class HibernateExemplo {
         Gato mirosmar = new Gato();
         mirosmar.setNome("Luigi");
         mirosmar.setDataNascimento(new Date());
-        mirosmar.setIdDono(2);
+//        mirosmar.setIdDono(2);
 
         session.save(mirosmar);
 

@@ -1,7 +1,4 @@
-package br.com.ada.entities;
-
-import lombok.Getter;
-import lombok.Setter;
+package br.com.ada.core.data.entities;
 
 import javax.persistence.*;
 import java.util.Date;

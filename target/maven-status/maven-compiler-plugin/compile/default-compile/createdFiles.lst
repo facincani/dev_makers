@@ -1,0 +1,11 @@
+br\com\ada\core\data\repositories\GatoRepository.class
+br\com\ada\core\data\entities\Produto.class
+br\com\ada\dto\GatoDto.class
+br\com\ada\core\data\repositories\impl\GatoRepositoryImpl.class
+br\com\ada\HibernateExemplo.class
+br\com\ada\core\service\impl\GatoServiceImpl.class
+br\com\ada\core\data\entities\Venda.class
+br\com\ada\core\service\GatoService.class
+br\com\ada\core\data\entities\Gato.class
+br\com\ada\core\data\entities\Dono.class
+br\com\ada\JDBCExemplo.class

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro</title>
+</head>
+<body>
+<form id="form">
+    <input type="text" id="nome" name="nome" placeholder="nome" />
+    <input type="text" id="dataNascimento" name="dataNascimento" placeholder="Data de descimento" />
+    <input type="submit" id="btnSalvar" value="Salvar" />
+</form>
+</body>
+<script>
+        const form = document.getElementById('form');
+
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+
+            const payload = new FormData(form);
+
+            var object = {};
+            payload.forEach(function(value, key){
+                object[key] = value;
+            });
+            var json = JSON.stringify(object);
+
+            console.log([...payload]);
+
+            fetch('http://localhost:8080/', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: json,
+            }).then(res => res.json()).then(data => console.log(data)).catch(err => console.log(err));
+
+        })
+
+    </script>
+</html>
